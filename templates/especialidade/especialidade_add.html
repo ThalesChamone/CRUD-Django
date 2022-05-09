@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h4>ADICIONAR ESPECIALIDADE</h4>
+        <hr>
+        <form action="{% url 'especialidade_add' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Salvar</button>
+            <a class="btn btn-danger" href="{% url 'especialidade' %}">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
