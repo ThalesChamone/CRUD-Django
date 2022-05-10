@@ -26,7 +26,7 @@
                         <td>
                             <a class="btn btn-warning" href="{% url 'convenio_edit' convenio.id %}">Editar</a>
                             <a class="btn btn-danger" href="{% url 'deletar_convenio' convenio.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir esse convênio?')">Exlcuir</a>
+                            onclick="return confirm('Tem certeza que deseja excluir esse convênio: {{convenio.nome_convenio}}?')">Exlcuir</a>
                         </td>          
                     </tr>
                 {% endfor %}

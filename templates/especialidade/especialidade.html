@@ -21,7 +21,7 @@
                         <td>
                             <a class="btn btn-warning" href="{% url 'especialidade_edit' especialidade.id %}">Editar</a>
                             <a class="btn btn-danger" href="{% url 'deletar_especialidade' especialidade.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir essa Especialidade?')">Excluir</a>
+                            onclick="return confirm('Tem certeza que deseja excluir essa Especialidade: {{especialidade}}?')">Excluir</a>
                         </td>          
                     </tr>
                 {% endfor %}
