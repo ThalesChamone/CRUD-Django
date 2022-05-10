@@ -33,7 +33,7 @@
                         <td>
                             <a class="btn btn-warning" href="{% url 'paciente_edit' paciente.id %}">Editar</a>
                             <a class="btn btn-danger" href="{% url 'deletar_paciente' paciente.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir esse paciente?')">Excluir</a>
+                            onclick="return confirm('Tem certeza que deseja excluir esse paciente: {{paciente.nome}}?')">Excluir</a>
                         </td>          
                     </tr>
                 {% endfor %}
