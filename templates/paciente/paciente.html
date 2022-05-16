@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
 
+
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h4>PACIENTES</h4>
-        <hr>
-        <a class="btn btn-success" href="{% url 'paciente_add' %}">Adicionar</a>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Data De Nascimento</th>
-                    <th>Endereço</th>
-                    <th>Telefone</th>
-                    <th>Médico</th>
-                    <th>Convênio</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for paciente in pacientes %}                                   
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>PACIENTES</h4>
+            <hr>
+            <a class="btn btn-success" href="{% url 'paciente_add' %}">Adicionar</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data De Nascimento</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>Médico</th>
+                        <th>Convênio</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for paciente in pacientes %}
                     <tr>
                         <td>{{ paciente.nome }}</td>
                         <td>{{ paciente.cpf }}</td>
@@ -33,12 +35,13 @@
                         <td>
                             <a class="btn btn-warning" href="{% url 'paciente_edit' paciente.id %}">Editar</a>
                             <a class="btn btn-danger" href="{% url 'deletar_paciente' paciente.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir esse paciente: {{paciente.nome}}?')">Excluir</a>
-                        </td>          
+                                onclick="return confirm('Tem certeza que deseja excluir esse paciente: {{paciente.nome}}?')">Excluir</a>
+                        </td>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,4 +1,3 @@
-from django.core.validators import RegexValidator
 from django import forms
 from . models import Convenio, Especialidade, Medico, Paciente
 
@@ -18,13 +17,19 @@ class PacienteForm(forms.ModelForm):
             'convenio_paciente': 'Convênio',
             'medico_paciente': 'Médico',
             'telefone': 'Telefone'
-        }       
+        } 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['cpf'].widget.attrs.update({'class' : 'cpf-mask'})
+        self.fields['telefone'].widget.attrs.update({'class' : 'telefone-mask'})
+        self.fields['data_nascimento'].widget.attrs.update({'class' : 'data-mask'})
+           
 
 
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Ex:. 01/01/1990'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ex: xxx.xxx.xxx-xx'}),
+            'cpf': forms.TextInput(attrs={'class': 'form-control cpf'}),
             'endereco': forms.TextInput(attrs={'class': 'form-control'}),         
             'telefone': forms.TextInput(attrs={'class': 'form-control'}),
         }

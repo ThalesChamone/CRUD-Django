@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h4>EDITAR CONVÊNIO</h4>
-        <hr>
-        <form action="{% url 'convenio_edit' convenio %}" method="post">            
-            {% csrf_token %}
-            {{ form }}
-            <button class="btn btn-success" type="submit">Salvar</button>
-            <a class="btn btn-danger" href="{% url 'convenio' %}">Cancelar</a>
-        </form>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>EDITAR CONVÊNIO</h4>
+            <hr>
+            <form action="{% url 'convenio_edit' convenio %}" method="post">            
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-success" type="submit">Salvar</button>
+                <a class="btn btn-danger" href="{% url 'convenio' %}">Cancelar</a>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

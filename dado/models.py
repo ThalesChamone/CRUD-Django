@@ -39,11 +39,11 @@ class Medico(models.Model):
 class Paciente(models.Model):
     nome = models.CharField(validators = [NAME_VALIDATOR], max_length=155)
     data_nascimento = models.DateField()    
-    cpf = models.CharField(validators=[CPF_VALIDATOR], max_length=11)
+    cpf = models.CharField(validators=[CPF_VALIDATOR], max_length=14)
     endereco = models.CharField(max_length=200)
     convenio_paciente = models.ForeignKey(Convenio, blank=True, null=True, on_delete=models.DO_NOTHING)
     medico_paciente = models.ForeignKey(Medico, blank=True, null=True, on_delete=models.DO_NOTHING)
-    telefone = PhoneNumberField(null=False, blank=False, unique= True) 
+    telefone = models.CharField(max_length=15, unique=True) 
 
     def __str__(self) -> str:
         return self.nome

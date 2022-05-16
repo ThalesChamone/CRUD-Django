@@ -1,37 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h4>CONVÊNIOS</h4>
-        <hr>
-        <a class="btn btn-success" href="{% url 'convenio_add' %}">Adicionar</a>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Empresa</th>
-                    <th>Nome Fantasia</th>
-                    <th>CNPJ</th>
-                    <th>Telefone</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for convenio in convenios %}                                   
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>CONVÊNIOS</h4>
+            <hr>
+            <a class="btn btn-success" href="{% url 'convenio_add' %}">Adicionar</a>
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>{{ convenio.nome_convenio }}</td>
-                        <td>{{ convenio.nome_fantasia }}</td>
-                        <td>{{ convenio.cnpj }}</td>
-                        <td>{{ convenio.telefone }}</td>
-                        <td>
-                            <a class="btn btn-warning" href="{% url 'convenio_edit' convenio.id %}">Editar</a>
-                            <a class="btn btn-danger" href="{% url 'deletar_convenio' convenio.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir esse convênio: {{convenio.nome_convenio}}?')">Exlcuir</a>
-                        </td>          
+                        <th>Empresa</th>
+                        <th>Nome Fantasia</th>
+                        <th>CNPJ</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for convenio in convenios %}                                   
+                        <tr>
+                            <td>{{ convenio.nome_convenio }}</td>
+                            <td>{{ convenio.nome_fantasia }}</td>
+                            <td>{{ convenio.cnpj }}</td>
+                            <td>{{ convenio.telefone }}</td>
+                            <td>
+                                <a class="btn btn-warning" href="{% url 'convenio_edit' convenio.id %}">Editar</a>
+                                <a class="btn btn-danger" href="{% url 'deletar_convenio' convenio.id %}"
+                                onclick="return confirm('Tem certeza que deseja excluir esse convênio: {{convenio.nome_convenio}}?')">Exlcuir</a>
+                            </td>          
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -2,31 +2,33 @@
 
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h4>ESPECIALIDADES</h4>
-        <hr>
-        <a class="btn btn-success" href="{% url 'especialidade_add' %}">Adicionar</a>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>                   
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for especialidade in especialidades %}                                   
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>ESPECIALIDADES</h4>
+            <hr>
+            <a class="btn btn-success" href="{% url 'especialidade_add' %}">Adicionar</a>
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>{{ especialidade }}</td>
-                        <td>
-                            <a class="btn btn-warning" href="{% url 'especialidade_edit' especialidade.id %}">Editar</a>
-                            <a class="btn btn-danger" href="{% url 'deletar_especialidade' especialidade.id %}"
-                            onclick="return confirm('Tem certeza que deseja excluir essa Especialidade: {{especialidade}}?')">Excluir</a>
-                        </td>          
+                        <th>Nome</th>                   
+                        <th>Ações</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for especialidade in especialidades %}                                   
+                        <tr>
+                            <td>{{ especialidade }}</td>
+                            <td>
+                                <a class="btn btn-warning" href="{% url 'especialidade_edit' especialidade.id %}">Editar</a>
+                                <a class="btn btn-danger" href="{% url 'deletar_especialidade' especialidade.id %}"
+                                onclick="return confirm('Tem certeza que deseja excluir essa Especialidade: {{especialidade}}?')">Excluir</a>
+                            </td>          
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
